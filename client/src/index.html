@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tijara</title>
-    <link rel="stylesheet" href="./public/css/nav-bar.css">
-    <link rel="stylesheet" href="./public/css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./public/css/nav-bar.css" />
+    <link rel="stylesheet" href="./public/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <nav>
-        <div class="nav-container">
-            <div class="logo">Tijara Platform</div>
+      <div class="nav-container">
+        <div class="logo">RizqMart Platform</div>
 
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="./pages/me.html">Profile</a></li>
-                <li>
-                    <a href="/">Announcements ▾</a>
-                    <ul>
-                        <li><a href="./pages/add.annnouncement.html">Add announcement</a></li>
-                        <li><a href="./pages/my.announcements.html">My announcements</a></li>
-                        <li><a href="./pages/liked.html">Liked announcements</a></li>
-                        <li><a href="./pages/last.seen.html">Last seen announcements</a></li>
-                    </ul>
-                </li>
-                <li><a href="./pages/contact.html">Contact</a></li>
-                <li><a href="./pages/sign.html">Login</a></li>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="./pages/me.html">Profile</a></li>
+          <li>
+            <a href="/">Announcements ▾</a>
+            <ul>
+              <li>
+                <a href="./pages/add.annnouncement.html">Add announcement</a>
+              </li>
+              <li>
+                <a href="./pages/my.announcements.html">My announcements</a>
+              </li>
+              <li><a href="./pages/liked.html">Liked announcements</a></li>
+              <li>
+                <a href="./pages/last.seen.html">Last seen announcements</a>
+              </li>
             </ul>
-        </div>
+          </li>
+          <li><a href="./pages/contact.html">Contact</a></li>
+          <li><a href="./pages/sign.html">Login</a></li>
+        </ul>
+      </div>
     </nav>
 
     <div class="second-bar">
-        <select id="categorySelect">
-            <option value="" selected>All categories</option>
-        </select>
+      <select id="categorySelect">
+        <option value="" selected>All categories</option>
+      </select>
 
-        <select id="locationSelect">
-            <option value="" selected>All locations</option>
-            <option value="Tashkent">Tashkent</option>
-            <option value="Bukhara">Bukhara</option>
-            <option value="Samarkand">Samarkand</option>
-            <option value="Andijan">Andijan</option>
-            <option value="Fergana">Fergana</option>
-            <option value="Namangan">Namangan</option>
-            <option value="Syrdarya">Syrdarya</option>
-            <option value="Jizzakh">Jizzakh</option>
-            <option value="Surkhandarya">Surkhandarya</option>
-            <option value="Kashkadarya">Kashkadarya</option>
-            <option value="Khorezm">Khorezm</option>
-            <option value="Urgench">Urgench</option>
-        </select>
+      <select id="locationSelect">
+        <option value="" selected>All locations</option>
+        <option value="Tashkent">Tashkent</option>
+        <option value="Bukhara">Bukhara</option>
+        <option value="Samarkand">Samarkand</option>
+        <option value="Andijan">Andijan</option>
+        <option value="Fergana">Fergana</option>
+        <option value="Namangan">Namangan</option>
+        <option value="Syrdarya">Syrdarya</option>
+        <option value="Jizzakh">Jizzakh</option>
+        <option value="Surkhandarya">Surkhandarya</option>
+        <option value="Kashkadarya">Kashkadarya</option>
+        <option value="Khorezm">Khorezm</option>
+        <option value="Urgench">Urgench</option>
+      </select>
 
-        <section class="search">
-            <input type="text" placeholder="Type here to search ..." id="search" name="search">
-            <label for="search" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></label>
-        </section>
+      <section class="search">
+        <input
+          type="text"
+          placeholder="Type here to search ..."
+          id="search"
+          name="search"
+        />
+        <label for="search" class="search-btn"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></label>
+      </section>
     </div>
     <div id="announcementList">Loading...</div>
     <div id="announcementModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <img id="modalImage"  alt="Announcement image" />
-            <h2 id="modalTitle"></h2>
-            <p id="modalPrice"></p>
-            <p id="modalLocation"></p>
-            <p id="modalDescription"></p>
-        </div>
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modalImage" alt="Announcement image" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalPrice"></p>
+        <p id="modalLocation"></p>
+        <p id="modalDescription"></p>
+      </div>
     </div>
 
     <script type="module" src="./public/js/main.js"></script>
-</body>
-
+  </body>
 </html>
