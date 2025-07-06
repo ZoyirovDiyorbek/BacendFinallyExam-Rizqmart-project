@@ -1,0 +1,230 @@
+:root {
+  --clr-container-bg: rgba(255, 255, 255, 0.105);
+  --clr-container-border: rgba(255, 255, 255, 0.196);
+  --clr-buttons-bg: rgba(255, 255, 255, 0.209);
+  --clr-highlight: #fff;
+  --clr-btn-text: #111;
+  --clr-btn-shadow: #444;
+  --clr-social-icon: #fff;
+  --clr-input: #fff;
+  --clr-input-border: #fff;
+  --clr-input-placeholder: #fff;
+  --clr-submit-bg: #fff;
+  --clr-submit-text: #111;
+  --clr-submit-border-hover: #fff;
+  --clr-span: #777;
+  --clr-terms: #fff;
+  --clr-terms-link: #aad8d3;
+
+  --box-shadow-buttons: 0 4px 10px 6px rgba(255, 255, 255, 0.15);
+  --box-shadow-submit: 0 4px 55px rgba(255, 255, 255, 0.2);
+
+  --bg-body-gradient: linear-gradient(to right, #155799, #159957);
+
+  --backdrop-form: blur(19px);
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  * {
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    display: grid;
+    place-content: center;
+    min-height: 100dvh;
+    background: #159957;
+    background: var(--bg-body-gradient);
+
+    /* Overlay */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      backdrop-filter: brightness(0.9);
+      z-index: -1;
+    }
+  }
+}
+
+@layer form {
+  .container {
+    background-color: var(--clr-container-bg);
+    border: 1px solid var(--clr-container-border);
+    backdrop-filter: var(--backdrop-form);
+
+    position: relative;
+
+    width: min(380px, 95vw);
+    height: 490px;
+
+    padding: 5px;
+    border-radius: 2rem;
+    overflow: clip;
+  }
+
+  .container__buttons {
+    background-color: var(--clr-buttons-bg);
+    box-shadow: var(--box-shadow-buttons);
+
+    position: relative;
+
+    display: flex;
+
+    width: 220px;
+
+    margin: 35px auto;
+    border-radius: 30px;
+  }
+
+  .container__btn-highlight {
+    background: var(--clr-highlight);
+
+    position: absolute;
+    inset: 0;
+
+    width: 110px;
+    height: 100%;
+    border-radius: 30px;
+
+    transition: 0.5s;
+  }
+
+  .container__toggle-btn {
+    background: transparent;
+    color: var(--clr-btn-text);
+
+    padding: 10px 30px;
+    width: 100%;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    text-transform: capitalize;
+
+    z-index: 99;
+    transition: 0.3s ease;
+
+    &:focus-visible {
+      border-radius: 30px;
+      box-shadow: inset 0 0 0 1px var(--clr-btn-shadow);
+    }
+  }
+
+  .container__social-icons {
+    gap: 0.7rem;
+
+    a {
+      display: block;
+
+      cursor: pointer;
+      transition: 0.2s ease;
+
+      &:hover {
+        scale: 1.2;
+      }
+
+      svg {
+        color: var(--clr-social-icon);
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .form {
+    padding-inline: clamp(1rem, 5vw, 2.5rem);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: translateX(0%);
+    transition: transform 0.5s ease;
+  }
+
+  .form__input {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid var(--clr-input-border);
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--clr-input);
+    caret-color: var(--clr-input-border);
+
+    &::placeholder {
+      color: var(--clr-input-placeholder);
+    }
+  }
+
+  .form__submit-btn {
+    box-shadow: var(--box-shadow-submit);
+    width: 80%;
+    padding: 10px 30px;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    color: var(--clr-submit-text);
+    background: var(--clr-submit-bg);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    text-transform: capitalize;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--clr-submit-border-hover);
+      border: 2px solid var(--clr-submit-border-hover);
+    }
+  }
+
+  .form__options {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 20px 0;
+  }
+
+  .form__terms {
+    color: var(--clr-terms);
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  #login {
+    transform: translateX(0%);
+    top: 190px;
+  }
+
+  #register {
+    transform: translateX(100%);
+    top: 165px;
+  }
+
+  .form__terms-link {
+    color: var(--clr-terms-link);
+    font-size: 14px;
+  }
+}
+
+@layer utilities {
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

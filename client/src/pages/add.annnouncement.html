@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Announcement</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+    <link rel="stylesheet" href="../public/css/add.announcement.css">
+    <link rel="stylesheet" href="../public/css/nav-bar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Tijara Platform</div>
+
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="./me.html">Profile</a></li>
+                <li>
+                    <a href="/">Announcements ▾</a>
+                    <ul>
+                        <li><a href="./add.annnouncement.html">Add announcement</a></li>
+                        <li><a href="./my.announcements.html">My announcements</a></li>
+                        <li><a href="./liked.html">Liked announcements</a></li>
+                        <li><a href="./last.seen.html">Last seen announcements</a></li>
+                    </ul>
+                </li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./sign.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h1>Add New Announcement</h1>
+            <p>Fill in all the details to sell your product</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            ✅ Announcement successfully added!
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            ❌ Error occurred while adding announcement!
+        </div>
+
+        <form id="announcementForm">
+            <div class="form-group">
+                <label for="name">Product Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="form-control" required
+                    placeholder="e.g., iPhone 13 Pro Max">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description <span class="required">*</span></label>
+                <textarea id="description" name="description" class="form-control" required
+                    placeholder="Provide detailed information about the product..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price <span class="required">*</span></label>
+                <div class="price-input">
+                    <input type="number" id="price" name="price" class="form-control" required placeholder="0" min="0">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location <span class="required">*</span></label>
+                <select id="location" name="location" class="form-control" required>
+                    <option value="">Select Location</option>
+                    <option value="Tashkent">Tashkent</option>
+                    <option value="Samarkand">Samarkand</option>
+                    <option value="Bukhara">Bukhara</option>
+                    <option value="Andijan">Andijan</option>
+                    <option value="Namangan">Namangan</option>
+                    <option value="Fergana">Fergana</option>
+                    <option value="Kashkadarya">Kashkadarya</option>
+                    <option value="Surkhandarya">Surkhandarya</option>
+                    <option value="Syrdarya">Syrdarya</option>
+                    <option value="Jizzakh">Jizzakh</option>
+                    <option value="Navoi">Navoi</option>
+                    <option value="Khorezm">Khorezm</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="categoryId">Category <span class="required">*</span></label>
+                <select id="categoryId" name="categoryId" class="form-control" required>
+                    <option value="">Select Category</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Images</label>
+                <div class="file-upload" id="fileUpload">
+                    <input type="file" id="images" name="images" multiple accept="image/*">
+                    <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    <div class="upload-text">Upload Images</div>
+                    <div class="upload-hint">Or drag and drop here (Max 10 images)</div>
+                </div>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Publish Announcement
+            </button>
+        </form>
+    </div>
+    <script type="module" src="../public/js/add.announcement.js"></script>
+</body>
+
+</html>

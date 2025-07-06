@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Roles {
+  USER
+  ADMIN
+  ALL
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @default(autoincrement())
+  name      String
+  email     String
+  password  String
+  role      Roles    @default(USER)
+  createdAt DateTime @default(now())
+
+  Liked        Liked[]
+  LastSeen     LastSeen[]
+  Announcement Announcement[]
+
+  @@id([id])
+  @@map("users")
+}
+
+model Category {
+  id           Int            @default(autoincrement())
+  name         String
+  Announcement Announcement[]
+
+  @@id([id])
+  @@map("category")
+}
+
+model Announcement {
+  id          Int      @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  location    String
+  images      String[]
+  userId      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  categoryID  Int
+
+  category Category   @relation(fields: [categoryID], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  Liked    Liked[]
+  LastSeen LastSeen[]
+
+  @@id([id])
+  @@map("announcement")
+}
+
+model Liked {
+  id             Int      @default(autoincrement())
+  userId         Int
+  announcementId Int
+  createdAt      DateTime @default(now())
+
+  announsement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([userId, announcementId])
+  @@map("liked")
+}
+
+model LastSeen {
+  id             Int      @default(autoincrement())
+  userId         Int
+  announcementId Int
+  createdAt      DateTime @default(now())
+
+  announsement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([userId, announcementId])
+  @@map("last_seen")
+}

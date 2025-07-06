@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel  src/pages/*.html src/index.html --port 4000",
+    "build": "parcel build src/index.html src/pages/*.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "nodemon": "^3.1.10",
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "bootstrap": "^5.3.6",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,65 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+.form {
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+  transition: transform 0.5s ease;
+}
+
+.form__input {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 1px solid var(--clr-input-border);
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--clr-input);
+  caret-color: var(--clr-input-border);
+
+  &::placeholder {
+    color: var(--clr-input-placeholder);
+  }
+}
+
+.form__submit-btn {
+  box-shadow: var(--box-shadow-submit);
+  width: 80%;
+  padding: 10px 30px;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  color: var(--clr-submit-text);
+  background: var(--clr-submit-bg);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--clr-submit-border-hover);
+    border: 2px solid var(--clr-submit-border-hover);
+  }
+}
+
+.form__options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 20px 0;
+}
+
+.form__terms {
+  color: var(--clr-terms);
+  font-size: 14px;
+  display: inline-block;
+}
